@@ -1,0 +1,67 @@
+# Core Web Scraping
+scrapy==2.11.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+requests==2.31.0
+selenium==4.15.2
+
+# Distributed Computing
+ray[default]==2.8.0
+
+# Message Queue
+kafka-python==2.0.2
+
+# Databases
+pymongo==4.6.0
+psycopg2-binary==2.9.9
+motor==3.3.2
+
+# Vector Database
+chromadb==0.4.18
+
+# AI/LLM Integration
+langchain==0.1.0
+openai==1.6.1
+tiktoken==0.5.2
+sentence-transformers==2.2.2
+transformers==4.36.0
+torch==2.1.2
+
+# API Framework
+fastapi==0.109.0
+uvicorn[standard]==0.25.0
+pydantic==1.10.9
+python-multipart==0.0.6
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Data Processing
+pandas==2.1.4
+numpy==1.26.2
+python-dotenv==1.0.0
+
+# Monitoring & Logging
+prometheus-client==0.19.0
+prometheus-fastapi-instrumentator==6.1.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+httpx==0.25.2
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+tenacity==8.2.3
+aiohttp==3.9.1
+redis==5.0.1
+
+# Development Tools
+black==23.12.1
+flake8==7.0.0
+isort==5.13.2
+mypy==1.7.1
+
+# Elasticsearch (Optional)
+elasticsearch==8.11.1
