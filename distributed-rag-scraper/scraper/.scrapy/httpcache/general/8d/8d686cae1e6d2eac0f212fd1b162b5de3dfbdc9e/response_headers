@@ -1,0 +1,14 @@
+Age: 0
+Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate
+Content-Encoding: gzip
+Content-Type: text/html; charset=utf-8
+Date: Sat, 01 Nov 2025 09:59:30 GMT
+Link: </_next/static/media/24e520e8ec381b85-s.p.woff2>; rel=preload; as="font"; crossorigin=""; type="font/woff2", </_next/static/media/87e6b20524c89797-s.p.woff2>; rel=preload; as="font"; crossorigin=""; type="font/woff2", </_next/static/media/b370c61d23e27c72-s.p.woff2>; rel=preload; as="font"; crossorigin=""; type="font/woff2", </_next/static/media/f806c30cfd00481c-s.p.woff2>; rel=preload; as="font"; crossorigin=""; type="font/woff2", </_next/static/css/770bfcb91c18f248.css>; rel=preload; as="style", </_next/static/css/c1a3de25a2b0a668.css>; rel=preload; as="style", </_next/static/css/13a06966aa441ed7.css>; rel=preload; as="style", </_next/static/css/9fa85a1d21e587d4.css>; rel=preload; as="style", </_next/static/css/35c909a302e2bc54.css>; rel=preload; as="style", </_next/static/css/2fdd912425c69478.css>; rel=preload; as="style", </_next/static/css/17a633a7840ce27b.css>; rel=preload; as="style", </_next/static/css/5e6d151469bc07f4.css>; rel=preload; as="style", </_next/static/css/4e6c125756779cb4.css>; rel=preload; as="style", </_next/static/css/3c9e4565d6bae6e3.css>; rel=preload; as="style", </_next/static/css/978b5ee15c786c2d.css>; rel=preload; as="style"
+Server: Vercel
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+Vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch
+X-Matched-Path: /[slug]
+X-Nextjs-Rewritten-Path: /home/
+X-Powered-By: Next.js
+X-Vercel-Cache: MISS
+X-Vercel-Id: cdg1::iad1::q7wfc-1761991168925-137267e163c7

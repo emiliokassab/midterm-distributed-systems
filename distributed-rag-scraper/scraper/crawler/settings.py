@@ -2,10 +2,10 @@
 Scrapy settings for distributed web scraper
 """
 
-BOT_NAME = 'rag_scraper'
+BOT_NAME = 'crawler'
 
-SPIDER_MODULES = ['scraper.spiders']
-NEWSPIDER_MODULE = 'scraper.spiders'
+SPIDER_MODULES = ['crawler.spiders']
+NEWSPIDER_MODULE = 'crawler.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
@@ -69,8 +69,8 @@ EXTENSIONS = {
 
 # Configure item pipelines
 ITEM_PIPELINES = {
-    'scraper.pipelines.ValidationPipeline': 100,
-    'scraper.pipelines.MongoDBPipeline': 300,
+    'crawler.pipelines.ValidationPipeline': 100,
+    'crawler.pipelines.MongoDBPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

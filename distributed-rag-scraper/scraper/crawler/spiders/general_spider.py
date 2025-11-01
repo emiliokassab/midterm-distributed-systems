@@ -69,7 +69,8 @@ class GeneralSpider(CrawlSpider):
             'title': self._extract_title(response),
             'html': response.text,
             'status_code': response.status,
-            'headers': dict(response.headers),
+            'headers': {k.decode('utf-8'): [v.decode('utf-8') for v in vals] 
+                       for k, vals in response.headers.items()},
             'timestamp': datetime.utcnow().isoformat(),
             'depth': response.meta.get('depth', 0),
             'links': self._extract_links(response),
