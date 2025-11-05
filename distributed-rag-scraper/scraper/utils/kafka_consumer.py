@@ -8,6 +8,7 @@ Why Kafka Consumer?
 - Tracks message offsets (knows what's been processed)
 """
 from kafka import KafkaConsumer
+from prometheus_client import start_http_server, Counter, Gauge
 import json
 import logging
 from typing import Callable
@@ -33,6 +34,7 @@ class ScrapingConsumer:
         topic: str = 'scraping-tasks',
         group_id: str = 'scraper-group',
         num_ray_workers: int = 4
+        
     ):
         """
         Initialize Kafka consumer
@@ -46,6 +48,19 @@ class ScrapingConsumer:
         self.bootstrap_servers = bootstrap_servers
         self.topic = topic
         self.group_id = group_id
+        self.alive = False  # ✅ added: flag to report consumer health (used for monitoring)
+
+        try:
+            # ✅ added: optional dynamic topic creation (if using admin client)
+            from kafka.admin import KafkaAdminClient, NewTopic  # ✅ added
+            admin_client = KafkaAdminClient(bootstrap_servers=bootstrap_servers)  # ✅ added
+            existing_topics = admin_client.list_topics()  # ✅ added
+            if topic not in existing_topics:  # ✅ added
+                admin_client.create_topics([NewTopic(name=topic, num_partitions=3, replication_factor=1)])  # ✅ added
+                logger.info(f"Created missing Kafka topic: {topic}")  # ✅ added
+            admin_client.close()  # ✅ added
+        except Exception as e:
+            logger.warning(f"Kafka topic check/creation failed (may already exist): {e}")  # ✅ added
         
         # Create Kafka consumer
         # Why auto_offset_reset='earliest'? Process all messages from beginning
@@ -62,6 +77,15 @@ class ScrapingConsumer:
             # Why max_poll_records? Don't overwhelm system
             max_poll_records=10
         )
+
+         # ✅ added: fault tolerance — verify connection before starting
+        try:
+            self.consumer.poll(timeout_ms=1000)  # quick connection check
+            logger.info("Kafka consumer connection verified")  # ✅ added
+            self.alive = True  # ✅ added
+        except Exception as e:
+            logger.error(f"Kafka consumer connection failed: {e}")  # ✅ added
+            self.alive = False  # ✅ added
         
         # Initialize Ray scraper
         self.scraper = DistributedScraper(num_workers=num_ray_workers)
